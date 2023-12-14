@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug Win64|Win32">
+      <Configuration>Debug Win64</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug Win64|x64">
+      <Configuration>Debug Win64</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Win64|Win32">
+      <Configuration>Release Win64</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Win64|x64">
+      <Configuration>Release Win64</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FD6A5608-6920-CFFD-F214-C9D45EC9C501}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ProjectName</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Win64|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Win64|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug Win64|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release Win64|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\Bin\ProjectName\Debug\Win32\</OutDir>
+    <IntDir>..\Bin\Obj\ProjectName\Debug\Win32\</IntDir>
+    <TargetName>ProjectName</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Win64|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\Bin\ProjectName\Debug\Win64\</OutDir>
+    <IntDir>..\Bin\Obj\ProjectName\Debug\Win64\</IntDir>
+    <TargetName>ProjectName</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\Bin\ProjectName\Release\Win32\</OutDir>
+    <IntDir>..\Bin\Obj\ProjectName\Release\Win32\</IntDir>
+    <TargetName>ProjectName</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Win64|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\Bin\ProjectName\Release\Win64\</OutDir>
+    <IntDir>..\Bin\Obj\ProjectName\Release\Win64\</IntDir>
+    <TargetName>ProjectName</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>Win32_Debug;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Vendor\SDL2\lib\x86;..\Vendor\SDL2Image\lib\x86;..\Vendor\SDL2ttf\lib\x86;..\Vendor\SDL2mixer\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)Vendor\SDL2\lib\x86\SDL2.dll $(SolutionDir)Bin\ProjectName\Debug\Win32\SDL2.dll
+copy $(SolutionDir)Vendor\SDL2Image\lib\x86\SDL2_image.dll $(SolutionDir)Bin\ProjectName\Debug\Win32\SDL2_image.dll
+copy $(SolutionDir)Vendor\SDL2ttf\lib\x86\SDL2_ttf.dll $(SolutionDir)Bin\ProjectName\Debug\Win32\SDL2_ttf.dll
+copy $(SolutionDir)Vendor\SDL2Mixer\lib\x86\SDL2_mixer.dll $(SolutionDir)Bin\ProjectName\Debug\Win32\SDL2_mixer.dll
+copy $(SolutionDir)Assets\Textures\house.png $(SolutionDir)Bin\ProjectName\Debug\Win32\house.png</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Win64|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>Win64_Debug;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Vendor\SDL2\lib\x64;..\Vendor\SDL2Image\lib\x64;..\Vendor\SDL2ttf\lib\x64;..\Vendor\SDL2mixer\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)Vendor\SDL2\lib\x64\SDL2.dll $(SolutionDir)Bin\ProjectName\Debug\Win64\SDL2.dll
+copy $(SolutionDir)Vendor\SDL2Image\lib\x64\SDL2_image.dll $(SolutionDir)Bin\ProjectName\Debug\Win64\SDL2_image.dll
+copy $(SolutionDir)Vendor\SDL2ttf\lib\x64\SDL2_ttf.dll $(SolutionDir)Bin\ProjectName\Debug\Win64\SDL2_ttf.dll
+copy $(SolutionDir)Vendor\SDL2Mixer\lib\x64\SDL2_mixer.dll $(SolutionDir)Bin\ProjectName\Debug\Win64\SDL2_mixer.dll
+copy $(SolutionDir)Assets\Textures\house.png $(SolutionDir)Bin\ProjectName\Debug\Win64\house.png</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>Win32_Release;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Vendor\SDL2\lib\x86;..\Vendor\SDL2Image\lib\x86;..\Vendor\SDL2ttf\lib\x86;..\Vendor\SDL2mixer\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)Vendor\SDL2\lib\x86\SDL2.dll $(SolutionDir)Bin\ProjectName\Release\Win32\SDL2.dll
+copy $(SolutionDir)Vendor\SDL2Image\lib\x86\SDL2_image.dll $(SolutionDir)Bin\ProjectName\Release\Win32\SDL2_image.dll
+copy $(SolutionDir)Vendor\SDL2ttf\lib\x86\SDL2_ttf.dll $(SolutionDir)Bin\ProjectName\Release\Win32\SDL2_ttf.dll
+copy $(SolutionDir)Vendor\SDL2Mixer\lib\x86\SDL2_mixer.dll $(SolutionDir)Bin\ProjectName\Release\Win32\SDL2_mixer.dll
+copy $(SolutionDir)Assets\Textures\house.png $(SolutionDir)Bin\ProjectName\Release\Win32\house.png</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Win64|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>Win64_Release;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Vendor\SDL2\lib\x64;..\Vendor\SDL2Image\lib\x64;..\Vendor\SDL2ttf\lib\x64;..\Vendor\SDL2mixer\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)Vendor\SDL2\lib\x64\SDL2.dll $(SolutionDir)Bin\ProjectName\Release\Win64\SDL2.dll
+copy $(SolutionDir)Vendor\SDL2Image\lib\x64\SDL2_image.dll $(SolutionDir)Bin\ProjectName\Release\Win64\SDL2_image.dll
+copy $(SolutionDir)Vendor\SDL2ttf\lib\x64\SDL2_ttf.dll $(SolutionDir)Bin\ProjectName\Release\Win64\SDL2_ttf.dll
+copy $(SolutionDir)Vendor\SDL2Mixer\lib\x64\SDL2_mixer.dll $(SolutionDir)Bin\ProjectName\Release\Win64\SDL2_mixer.dll
+copy $(SolutionDir)Assets\Textures\house.png $(SolutionDir)Bin\ProjectName\Release\Win64\house.png</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\Game.h" />
+    <ClInclude Include="..\Src\Timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\main.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
