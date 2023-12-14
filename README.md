@@ -18,4 +18,5 @@ Example:
 Run the .bat script and you are all ready to go.
 
 TODO: Imgui, glm, and maybe box2d.
+Fixed up this Read-Me. 
 
