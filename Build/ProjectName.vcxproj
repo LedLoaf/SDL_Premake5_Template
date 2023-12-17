@@ -87,7 +87,7 @@
     <IntDir>..\bin\obj\ProjectName\Debug\Win32\</IntDir>
     <TargetName>ProjectName</TargetName>
     <TargetExt>.exe</TargetExt>
-    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;..;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;..\Vendor\imgui;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Win64|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -95,7 +95,7 @@
     <IntDir>..\bin\obj\ProjectName\Debug\Win64\</IntDir>
     <TargetName>ProjectName</TargetName>
     <TargetExt>.exe</TargetExt>
-    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;..;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;..\Vendor\imgui;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -103,7 +103,7 @@
     <IntDir>..\bin\obj\ProjectName\Release\Win32\</IntDir>
     <TargetName>ProjectName</TargetName>
     <TargetExt>.exe</TargetExt>
-    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;..;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;..\Vendor\imgui;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Win64|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -111,7 +111,7 @@
     <IntDir>..\bin\obj\ProjectName\Release\Win64\</IntDir>
     <TargetName>ProjectName</TargetName>
     <TargetExt>.exe</TargetExt>
-    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;..;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>..\Vendor\SDL2\include;..\Vendor\SDL2Image\include;..\Vendor\SDL2ttf\include;..\Vendor\SDL2Mixer\include;..\Vendor\imgui;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
