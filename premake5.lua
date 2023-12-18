@@ -38,7 +38,7 @@ _proj["toolset"] 			= "msc-v143"		-- Selects the compiler, linker, etc. which ar
 _proj["language"] 			= "C++"				-- We indicate that all the projects are C++ only
 _proj["cppdialect"]			= "C++latest"		-- The version of C++. Options such as (C++14, C++17, C++20, C++latest)
 
--- Third-Party library or plugin
+-- Third-Party library or plugin				-- This is mandatory to have to track the directories
 extDir = {}
 -- SDL Libraries
 extDir["SDL2"] 				= "Vendor/SDL2"
@@ -46,6 +46,7 @@ extDir["SDL2Image"] 		= "Vendor/SDL2Image"
 extDir["SDL2ttf"] 			= "Vendor/SDL2ttf"
 extDir["SDL2Mixer"] 		= "Vendor/SDL2Mixer"
 extDir["ImGui"] 			= "Vendor/imgui"
+extDir["glm"] 				= "Vendor/glm"
 
 -- === Extra's ==
 -- bindirs { "directory" } sets the binary directory
@@ -64,9 +65,11 @@ extDir["ImGui"] 			= "Vendor/imgui"
 -- group "GroupLabel"		Starts a "workspace group", a virtual folder to contain one or more projects.
 	--include "ProjectPath"
 
--- Workspace Setings
+	------------------------------------------------------------
+	----------------****Workspace Settings****------------------
+	------------------------------------------------------------
 workspace (_workspace.workspace)
-	startproject (_proj.name)	-- Specify the startup project for a workspace.
+	startproject (_proj.name)				-- Specify the startup project for a workspace.
 	
 	-- Types of configurations (Debug, Release)
 	configurations
@@ -95,10 +98,15 @@ workspace (_workspace.workspace)
 	-- Source/Header files to add to the project
 	files
 	{
-		"Src/**.cpp",			-- '**' Adds all C++ files in the Src folder and subdirectories
-		"Src/*.h",
+		"Src/**.cpp",				 		-- '**' Adds all C++ source files in the folder and subdirectories
+		"Src/*.h",							-- '*' Adds all C++ header files in the folder, EXCEPT, the subdirectories
+		
 		"Vendor/imgui/*.cpp",
-		"Vendor/imgui/*.h",			-- imgui_sdl.h and imgui_sdl.cpp are SDL backends located in the main folder. (Note: It's not using ImGui's backends)
+		"Vendor/imgui/*.h",					-- imgui_sdl.h and imgui_sdl.cpp are SDL backends located in the main folder. (Note: It's not using ImGui's backends)
+		
+		"Vendor/glm/glm/**.hpp",
+		"Vendor/glm/glm/**.inl",
+		
 	}
 		
 	-- We use filters to set options for the specific builds
@@ -119,6 +127,8 @@ workspace (_workspace.workspace)
 		"%{extDir.SDL2ttf}/include",
 		"%{extDir.SDL2Mixer}/include",
 		"%{extDir.ImGui}",
+		"%{extDir.glm}",
+		
 		
 	}
 	
@@ -126,8 +136,8 @@ workspace (_workspace.workspace)
 	     	Premake will figure out the correct library to link against for the current configuration, and will also create a dependency between the projects to ensure a proper build order. 
 		
 	    	Note: When linking against system libraries, do not include any prefix or file extension. Premake will use the appropriate naming conventions for the current platform. With two exceptions:
-		1. Managed C++ projects can link against managed assemblies by explicitly specifying the ".dll" file extension. Unmanaged libraries should continue to be specified without any decoration.
-		2. For Visual Studio, this will add the specified project into References. In contrast, 'dependson' generates a build order dependency in the solution between two projects.--]]
+				1. Managed C++ projects can link against managed assemblies by explicitly specifying the ".dll" file extension. Unmanaged libraries should continue to be specified without any decoration.
+				2. For Visual Studio, this will add the specified project into References. In contrast, 'dependson' generates a build order dependency in the solution between two projects.--]]
 	links
 	{
 		-- SDL Lib names
@@ -139,11 +149,11 @@ workspace (_workspace.workspace)
 		"imgui",
 	}
 	
-	-- ** Win32 Settings **
+	-- ** Win32 Platform Settings **
 	-- We now only set the settings for the Debug configuration
 	filter {"system:windows", "platforms:Win32" }
-		-- We want debug symbols in our debug config
-		symbols "On"
+		
+		symbols "On"					-- We want debug symbols in our debug config
 	
 	architecture 	(_arch.x86)			-- Specifies the system architecture to be targeted by the configuration.
 	objdir			(_proj.objdir)		-- Sets the directory where object and other intermediate files should be placed when building a project.
@@ -155,8 +165,8 @@ workspace (_workspace.workspace)
 	---------------****Win32 Debug Settings****-----------------
 	------------------------------------------------------------
 	filter {"system:windows", "configurations:Debug", "platforms:Win32"}
-		-- We want debug symbols in our debug config
-		symbols "On"
+		
+		symbols "On"					-- We want debug symbols in our debug config
 		
 	-- Specifies the library search paths for the linker (Link libraries, frameworks, or sibling projects)
 	libdirs
@@ -179,12 +189,12 @@ workspace (_workspace.workspace)
 	postbuildcommands
 	{
 		-- SDL Win32 Debug .dll locations to copy from and to the correct directory
-		"copy $(SolutionDir)Vendor\\SDL2\\lib\\x86\\SDL2.dll 		$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win32\\SDL2.dll",
+		"copy $(SolutionDir)Vendor\\SDL2\\lib\\x86\\SDL2.dll 			$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win32\\SDL2.dll",
 		"copy $(SolutionDir)Vendor\\SDL2Image\\lib\\x86\\SDL2_image.dll $(SolutionDir)bin\\".._proj.name.."\\Debug\\Win32\\SDL2_image.dll",
 		"copy $(SolutionDir)Vendor\\SDL2ttf\\lib\\x86\\SDL2_ttf.dll 	$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win32\\SDL2_ttf.dll",
 		"copy $(SolutionDir)Vendor\\SDL2Mixer\\lib\\x86\\SDL2_mixer.dll $(SolutionDir)bin\\".._proj.name.."\\Debug\\Win32\\SDL2_mixer.dll",
 		-- Texture .png Example
-		"copy $(SolutionDir)Assets\\Textures\\house.png 		$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win32\\house.png",
+		"copy $(SolutionDir)Assets\\Textures\\house.png 				$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win32\\house.png",
 	
 	}
 	
@@ -192,8 +202,8 @@ workspace (_workspace.workspace)
 	---------------****Win32 Release Settings****---------------
 	------------------------------------------------------------
 	filter {"system:windows", "configurations:Release", "platforms:Win32"}
-		-- Release should be optimized
-		optimize "On"
+	
+		optimize "On"-- Release should be optimized
 
 	-- Specifies the library search paths for the linker (Link libraries, frameworks, or sibling projects)
 	libdirs
@@ -215,13 +225,13 @@ workspace (_workspace.workspace)
 	postbuildcommands
 	{
 		-- SDL Win32 Realease .dll locations to copy from and to the correct directory
-		"copy $(SolutionDir)Vendor\\SDL2\\lib\\x86\\SDL2.dll 		$(SolutionDir)bin\\".._proj.name.."\\Release\\Win32\\SDL2.dll",
+		"copy $(SolutionDir)Vendor\\SDL2\\lib\\x86\\SDL2.dll 			$(SolutionDir)bin\\".._proj.name.."\\Release\\Win32\\SDL2.dll",
 		"copy $(SolutionDir)Vendor\\SDL2Image\\lib\\x86\\SDL2_image.dll $(SolutionDir)bin\\".._proj.name.."\\Release\\Win32\\SDL2_image.dll",
 		"copy $(SolutionDir)Vendor\\SDL2ttf\\lib\\x86\\SDL2_ttf.dll 	$(SolutionDir)bin\\".._proj.name.."\\Release\\Win32\\SDL2_ttf.dll",
 		"copy $(SolutionDir)Vendor\\SDL2Mixer\\lib\\x86\\SDL2_mixer.dll $(SolutionDir)bin\\".._proj.name.."\\Release\\Win32\\SDL2_mixer.dll",
 		
 		-- Texture .png Example
-		"copy $(SolutionDir)Assets\\Textures\\house.png 		$(SolutionDir)bin\\".._proj.name.."\\Release\\Win32\\house.png",
+		"copy $(SolutionDir)Assets\\Textures\\house.png 				$(SolutionDir)bin\\".._proj.name.."\\Release\\Win32\\house.png",
 	}
 	
 	------------------------------------------------------------
@@ -258,13 +268,13 @@ workspace (_workspace.workspace)
 	postbuildcommands
 	{
 		-- SDL Win64 Debug .dll locations to copy from and to the correct directory
-		"copy $(SolutionDir)Vendor\\SDL2\\lib\\x64\\SDL2.dll 		$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win64\\SDL2.dll",
+		"copy $(SolutionDir)Vendor\\SDL2\\lib\\x64\\SDL2.dll 			$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win64\\SDL2.dll",
 		"copy $(SolutionDir)Vendor\\SDL2Image\\lib\\x64\\SDL2_image.dll $(SolutionDir)bin\\".._proj.name.."\\Debug\\Win64\\SDL2_image.dll",
 		"copy $(SolutionDir)Vendor\\SDL2ttf\\lib\\x64\\SDL2_ttf.dll 	$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win64\\SDL2_ttf.dll",
 		"copy $(SolutionDir)Vendor\\SDL2Mixer\\lib\\x64\\SDL2_mixer.dll $(SolutionDir)bin\\".._proj.name.."\\Debug\\Win64\\SDL2_mixer.dll",
 		
 		-- Texture .png Example
-		"copy $(SolutionDir)Assets\\Textures\\house.png 		$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win64\\house.png",
+		"copy $(SolutionDir)Assets\\Textures\\house.png 				$(SolutionDir)bin\\".._proj.name.."\\Debug\\Win64\\house.png",
 	}
 	
 	
@@ -295,12 +305,12 @@ workspace (_workspace.workspace)
 	postbuildcommands
 	{
 		-- SDL Win64 Release .dll locations to copy from and to the correct directory
-		"copy $(SolutionDir)Vendor\\SDL2\\lib\\x64\\SDL2.dll 		$(SolutionDir)bin\\".._proj.name.."\\Release\\Win64\\SDL2.dll",
+		"copy $(SolutionDir)Vendor\\SDL2\\lib\\x64\\SDL2.dll 			$(SolutionDir)bin\\".._proj.name.."\\Release\\Win64\\SDL2.dll",
 		"copy $(SolutionDir)Vendor\\SDL2Image\\lib\\x64\\SDL2_image.dll $(SolutionDir)bin\\".._proj.name.."\\Release\\Win64\\SDL2_image.dll",
 		"copy $(SolutionDir)Vendor\\SDL2ttf\\lib\\x64\\SDL2_ttf.dll 	$(SolutionDir)bin\\".._proj.name.."\\Release\\Win64\\SDL2_ttf.dll",
 		"copy $(SolutionDir)Vendor\\SDL2Mixer\\lib\\x64\\SDL2_mixer.dll $(SolutionDir)bin\\".._proj.name.."\\Release\\Win64\\SDL2_mixer.dll",
 		-- Texture .png Example
-		"copy $(SolutionDir)Assets\\Textures\\house.png 		$(SolutionDir)bin\\".._proj.name.."\\Release\\Win64\\house.png",
+		"copy $(SolutionDir)Assets\\Textures\\house.png 				$(SolutionDir)bin\\".._proj.name.."\\Release\\Win64\\house.png",
 	}
 	------------------------------------------------------------
 	

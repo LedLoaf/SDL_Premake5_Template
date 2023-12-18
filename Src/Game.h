@@ -6,8 +6,10 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
-#include "imgui.h"
-#include "imgui_sdl.h"
+#include <imgui.h>
+#include <imgui_sdl.h>
+
+#include <glm/glm.hpp>
 
 #include <iostream>
 #include <string>
@@ -95,6 +97,14 @@ public:
 
         // Start counting frames per second
         m_FPSTimer.Start();
+
+        //todo Testing GLM [remove]
+        const glm::vec2 vec1{ 500.f,250.f };
+        glm::vec2 vec2{ 100.f,25.f };
+
+        SDL_Log("\t\t\t*Testing GLM functionality*\n\t"
+                "X and Y: vec1 {%f, %f}\tvec2{%f, %f}\n\t"
+                "Lengths: vec1 = %d\t\t\tvec2 = %d", vec1.x, vec1.y, vec1.x, vec1.y, vec1.length(), vec2.length());
 
         return isSuccess;
     }
