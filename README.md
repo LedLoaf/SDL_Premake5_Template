@@ -13,7 +13,7 @@
 
 ***
 
-###### Open up the premake5 and fill out the appropriate variables
+###### Open up the premake5 file and fill out the appropriate variables
 ###### Example:
 - **Workspace name**    = "SDL-Template"
 - **Project name**      = "Sandbox"
