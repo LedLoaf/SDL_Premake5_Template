@@ -1,7 +1,7 @@
 ##### his is a basic premake5 file for setting up SDL2 in C++ for Debug and Release mode for x86/x64.
 ***
 
-**As of right now, it has SDL2 libraries:**
+**As of right now, it includes the following libraries:**
 -  SDL2,
 -  SDL2_image,
 -  SDL2_ttf,
